@@ -1,13 +1,13 @@
-package com.example.challenger.presentation.auth.pre
+package com.example.challenger.presentation.auth.authorization
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.challenger.R
 
-class PreActivity : AppCompatActivity() {
+class AuthActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_pre)
+        setContentView(R.layout.activity_auth)
     }
 }

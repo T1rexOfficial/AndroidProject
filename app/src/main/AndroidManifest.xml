@@ -12,6 +12,9 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             tools:ignore="GoogleAppIndexingWarning">
+
+        <activity android:name=".presentation.auth.authorization.AuthActivity">
+        </activity>
         <activity android:name=".presentation.auth.pre.PreActivity">
         </activity>
         <activity
