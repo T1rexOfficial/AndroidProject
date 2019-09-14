@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           xmlns:tools="http://schemas.android.com/tools"
-          package="com.example.challenger">
+          package="com.example.help_me">
 
     <application
-            android:name=".App"
+            android:name="com.example.help_me.App"
             android:allowBackup="true"
             android:icon="@mipmap/ic_launcher"
             android:label="@string/app_name"
@@ -12,13 +12,18 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             tools:ignore="GoogleAppIndexingWarning">
-
-        <activity android:name=".presentation.auth.authorization.AuthActivity">
+        <activity
+                android:name="com.example.help_me.presentation.main.MainActivity"
+                android:label="@string/title_activity_main">
         </activity>
-        <activity android:name=".presentation.auth.pre.PreActivity">
+        <activity android:name="com.example.help_me.presentation.auth.registration.RegActivity">
+        </activity>
+        <activity android:name="com.example.help_me.presentation.auth.authorization.AuthActivity">
+        </activity>
+        <activity android:name="com.example.help_me.presentation.auth.pre.PreActivity">
         </activity>
         <activity
-                android:name=".presentation.SplashActivity"
+                android:name="com.example.help_me.presentation.SplashActivity"
                 android:screenOrientation="portrait"
                 android:theme="@style/SplashTheme">
             <intent-filter>
@@ -28,7 +33,7 @@
             </intent-filter>
         </activity>
         <activity
-                android:name=".presentation.sample.SampleActivity"
+                android:name="com.example.help_me.presentation.sample.SampleActivity"
                 android:screenOrientation="portrait"/>
     </application>
 

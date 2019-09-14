@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        tools:context=".presentation.auth.registration.RegActivity">
+
+    <androidx.appcompat.widget.Toolbar
+            app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/toolbarReg"
+            android:elevation="4dp"
+            android:minHeight="?attr/actionBarSize"
+            android:background="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <ImageButton
+                    android:id="@+id/toolbarRegBack"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    android:background="@color/white"
+                    android:src="@drawable/ic_arrow_back"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"/>
+            <TextView
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintLeft_toRightOf="@id/toolbarRegBack"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:id="@+id/toolbarRegText"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"
+                    android:textSize="20sp"
+                    android:text="Регистрация"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <androidx.core.widget.NestedScrollView
+            app:layout_constraintTop_toBottomOf="@id/toolbarReg"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/reg_social_all"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <TextView
+                    android:textColor="@color/black"
+                    android:text="Зарегистрироваться с помощью:"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:textSize="20sp"
+                    android:textStyle="italic"
+                    android:id="@+id/text_reg"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+
+                    android:id="@+id/social_sites_reg"
+                    app:layout_constraintTop_toBottomOf="@id/text_reg"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="8dp"
+                    android:background="@color/white"
+                    android:layout_height="wrap_content">
+
+                <ImageView
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:layout_marginLeft="36dp"
+                        android:id="@+id/vkImgReg"
+                        android:src="@drawable/vk"
+                        android:padding="8dp"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"/>
+
+
+                <ImageView
+                        android:id="@+id/facebookImgReg"
+                        android:src="@drawable/facebook"
+                        app:layout_constraintLeft_toRightOf="@id/vkImgReg"
+                        app:layout_constraintRight_toLeftOf="@id/googleImgReg"
+                        android:padding="6dp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"/>
+
+                <ImageView
+                        android:id="@+id/googleImgReg"
+                        app:layout_constraintLeft_toRightOf="@id/facebookImgReg"
+                        app:layout_constraintRight_toLeftOf="@id/twitterImgReg"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:layout_marginRight="15dp"
+                        android:layout_marginTop="5dp"
+                        android:src="@drawable/google"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"/>
+
+                <ImageView
+                        android:src="@drawable/twitter_logo"
+                        android:id="@+id/twitterImgReg"
+
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:padding="4dp"
+                        android:layout_marginRight="36dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+            <Button
+                    android:id="@+id/regBtnReg"
+                    android:background="@drawable/oval_button"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginRight="36dp"
+                    android:layout_marginLeft="36dp"
+                    android:textAllCaps="false"
+                    android:text="Зарегистрироваться"
+                    android:textSize="25dp"
+                    android:textColor="@color/white"
+                    app:layout_constraintTop_toBottomOf="@id/social_sites_reg"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

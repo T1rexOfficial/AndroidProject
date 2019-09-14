@@ -5,114 +5,146 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorAccent"
+        android:background="@color/white"
         tools:context=".presentation.auth.authorization.AuthActivity">
 
+    <androidx.appcompat.widget.Toolbar
+            app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/toolbarAuth"
+            android:elevation="4dp"
+            android:minHeight="?attr/actionBarSize"
+            android:background="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageButton
+                            android:id="@+id/toolbarAuthBack"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            android:background="@color/white"
+                            android:src="@drawable/ic_arrow_back"
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"/>
+                    <TextView
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintLeft_toRightOf="@id/toolbarAuthBack"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+
+                            android:id="@+id/toolbarAuthText"
+                            android:paddingLeft="16dp"
+                            android:paddingRight="16dp"
+                            android:textSize="20sp"
+                            android:text="Авторизация"
+                            android:textColor="@color/black"
+                            android:textStyle="bold"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+
+
+    <TextView
+            android:textColor="@color/black"
+            android:text="Войти с помощью:"
+            android:layout_marginTop="8dp"
+            android:textSize="20sp"
+            android:textStyle="italic"
+            app:layout_constraintTop_toBottomOf="@id/toolbarAuth"
+            android:id="@+id/text_login"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+
+            android:id="@+id/social_sites"
+            app:layout_constraintTop_toBottomOf="@id/text_login"
+            android:layout_width="match_parent"
+            android:layout_marginTop="8dp"
+            android:background="@color/white"
+            android:layout_height="wrap_content">
 
         <ImageView
+                app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                android:id="@+id/incrCh"
-                android:src="@drawable/challenger"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginLeft="36dp"
+                android:id="@+id/vkImg"
+                android:src="@drawable/vk"
+                android:padding="8dp"
+                android:layout_width="60dp"
+                android:layout_height="60dp"/>
+
+        <ImageView
+                android:id="@+id/facebookImg"
+                android:src="@drawable/facebook"
+                app:layout_constraintLeft_toRightOf="@id/vkImg"
+                app:layout_constraintRight_toLeftOf="@id/googleImg"
+                android:padding="6dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+
+                android:layout_width="60dp"
+                android:layout_height="60dp"/>
+
+        <ImageView
+                android:id="@+id/googleImg"
+                app:layout_constraintLeft_toRightOf="@id/facebookImg"
+                app:layout_constraintRight_toLeftOf="@id/twitterImg"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="5dp"
+                android:src="@drawable/google"
+                android:layout_width="40dp"
+                android:layout_height="40dp"/>
+
+        <ImageView
+                android:src="@drawable/twitter_logo"
+                android:id="@+id/twitterImg"
+
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                android:layout_width="match_parent"
-                android:layout_marginLeft="10dp"
-                android:layout_height="wrap_content"/>
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:padding="4dp"
+                android:layout_marginRight="36dp"
+                android:layout_marginTop="5dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"/>
 
-        <TextView
-                android:textColor="@color/white"
-                android:text="Войти с помощью:"
-                android:textSize="20sp"
-                android:textStyle="italic"
-                app:layout_constraintTop_toBottomOf="@id/incrCh"
-                android:id="@+id/text_login"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-
-                android:id="@+id/social_sites"
-                app:layout_constraintTop_toBottomOf="@id/text_login"
-                android:layout_width="match_parent"
-                android:layout_marginTop="10dp"
-                android:background="@color/colorAccent"
-                android:layout_height="wrap_content">
-
-                <ImageView
-                        app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        android:layout_marginLeft="64dp"
-                        android:id="@+id/vkImg"
-                        android:background="@color/colorAccent"
-                        android:src="@drawable/vk"
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"/>
-
-                <ImageView
-                        android:id="@+id/facebookImg"
-                        android:src="@drawable/facebook"
-                        app:layout_constraintLeft_toRightOf="@id/vkImg"
-                        app:layout_constraintRight_toLeftOf="@id/googleImg"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintBottom_toBottomOf="parent"
-
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"/>
-
-                <ImageView
-                        android:id="@+id/googleImg"
-                        app:layout_constraintLeft_toRightOf="@id/facebookImg"
-                        app:layout_constraintRight_toLeftOf="@id/twitterImg"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        android:layout_marginRight="15dp"
-                        android:layout_marginTop="5dp"
-                        android:src="@drawable/google"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"/>
-
-                <ImageView
-                        android:src="@drawable/twitter"
-                        android:id="@+id/twitterImg"
-
-                        app:layout_constraintRight_toRightOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintBottom_toBottomOf="parent"
-
-                        android:layout_marginRight ="64dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"/>
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
 
             app:layout_constraintTop_toBottomOf="@id/social_sites"
             android:layout_width="match_parent"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="30dp"
             android:id="@+id/barIn"
-            android:background="@color/colorAccent"
+            android:background="@color/white"
             android:layout_height="wrap_content">
         <ImageView
                 android:id="@+id/mailIn"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
-                android:src="@drawable/ic_auth_mail"
-                android:tint="@color/white"
+                android:src="@drawable/ic_person"
                 android:layout_marginTop="8dp"
-                android:layout_marginLeft="64dp"
+                android:layout_marginLeft="36dp"
                 android:layout_width="30dp"
                 android:layout_height="40dp"/>
         <EditText
                 android:id="@+id/authMailEditId"
                 android:inputType="text"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 app:layout_constraintLeft_toRightOf="@id/mailIn"
                 android:layout_marginTop="15dp"
                 app:layout_constraintTop_toTopOf="parent"
@@ -120,26 +152,27 @@
                 android:layout_width="0dp"
                 android:textStyle="italic"
                 android:background="@color/colorTransparent"
-                android:hint="Email"
+                android:hint="Login"
                 app:layout_constraintRight_toRightOf="parent"
-                android:layout_marginRight="64dp"
+                android:layout_marginRight="36dp"
                 android:layout_height="wrap_content"/>
         <ImageView
                 android:src="@drawable/ic_auth_pass"
                 app:layout_constraintTop_toBottomOf="@id/mailIn"
                 app:layout_constraintLeft_toLeftOf="@id/mailIn"
                 android:id="@+id/passIn"
-                android:tint="@color/white"
                 android:layout_width="30dp"
                 android:layout_height="40dp"/>
+
         <EditText
                 android:id="@+id/authPassEditId"
                 android:layout_marginLeft="5dp"
-                android:layout_marginRight="64dp"
+                android:layout_marginRight="36dp"
                 android:hint="Password"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:background="@color/colorTransparent"
                 android:inputType="textPassword"
+                android:textStyle="italic"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintLeft_toRightOf="@id/passIn"
                 app:layout_constraintTop_toBottomOf="@id/authMailEditId"
@@ -155,14 +188,30 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             android:layout_marginTop="24dp"
-            android:layout_marginRight="64dp"
-            android:layout_marginLeft="64dp"
+            android:layout_marginRight="36dp"
+            android:layout_marginLeft="36dp"
             app:layout_constraintTop_toBottomOf="@id/barIn"
             android:layout_width="0dp"
             android:text="Войти"
             android:textAllCaps="false"
             android:textSize="25dp"
-            android:textColor="@color/colorPrimaryDark"
+            android:textColor="@color/white"
+            android:layout_height="wrap_content"/>
+    <Button
+            android:id="@+id/authBtnPassF"
+
+            android:background="@drawable/oval_button"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginTop="16dp"
+            android:layout_marginRight="36dp"
+            android:layout_marginLeft="36dp"
+            android:textAllCaps="false"
+            android:text="Забыли пароль?"
+            android:textSize="25dp"
+            android:textColor="@color/white"
+            app:layout_constraintTop_toBottomOf="@id/authBtnIn"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

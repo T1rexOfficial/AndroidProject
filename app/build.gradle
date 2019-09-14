@@ -7,7 +7,7 @@ apply plugin: 'com.google.gms.google-services'
 android {
     compileSdkVersion 28
     defaultConfig {
-        applicationId "com.example.challenger"
+        applicationId "com.example.help_me"
         minSdkVersion 21
         targetSdkVersion 28
         versionCode 1
@@ -52,4 +52,5 @@ dependencies {
     implementation 'androidx.viewpager:viewpager:1.0.0'
     implementation 'androidx.appcompat:appcompat:1.0.2'
     implementation 'com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2'
+    implementation 'com.github.scottyab:showhidepasswordedittext:0.8'
 }
