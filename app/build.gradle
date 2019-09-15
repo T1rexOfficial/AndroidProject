@@ -53,4 +53,8 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.0.2'
     implementation 'com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2'
     implementation 'com.github.scottyab:showhidepasswordedittext:0.8'
+
+    api 'com.theartofdev.edmodo:android-image-cropper:2.8.+'
+    implementation 'id.zelory:compressor:2.1.0'
+
 }
