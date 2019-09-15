@@ -7,16 +7,25 @@ import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.EditText
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.example.help_me.R
+import com.example.help_me.presentation.dialogs.ChoiceItem
+import com.example.help_me.presentation.dialogs.ChoiceType
+import com.example.help_me.presentation.dialogs.MultiChoiceDialogFragment
 import com.theartofdev.edmodo.cropper.CropImage
 import id.zelory.compressor.Compressor
 import kotlinx.android.synthetic.main.activity_reg.*
+import org.koin.androidx.viewmodel.ext.android.getViewModel
 import java.io.File
 
-class RegActivity : AppCompatActivity() {
+class RegActivity : AppCompatActivity(), MultiChoiceDialogFragment.DataReceiver {
+
+    private var cityCode = ""
+
+    private lateinit var viewModel: RegViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,6 +33,11 @@ class RegActivity : AppCompatActivity() {
         toolbarRegBack.setOnClickListener {
             onBackPressed()
         }
+
+        viewModel = getViewModel()
+
+        setCityChoices()
+
 
         reg_radio_button.setOnCheckedChangeListener { reg_radio_button, i->
             when (i) {
@@ -75,6 +89,11 @@ class RegActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
     }
 
+    fun setDefaultState(editText: EditText) {
+        editText.error = null
+        editText.setBackgroundResource(R.drawable.selector_edittext)
+    }
+
 
     val permissions = arrayOf(
         Manifest.permission.CAMERA,
@@ -89,6 +108,38 @@ class RegActivity : AppCompatActivity() {
         ) {
             ActivityCompat.requestPermissions(this, permissions, 120)
             return
+        }
+    }
+
+    override fun onDataSentFromDialog(choices: ArrayList<ChoiceItem>) {
+        if (choices.isNotEmpty()) {
+            when (choices[0].type) {
+                ChoiceType.CITY -> {
+                    choices.forEach {
+                        if (it.chosen) {
+                            cityCode = it.code
+                            regCityEdit.setText(it.label)
+                            return@forEach
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    private fun setCityChoices() {
+        regCityEdit.setOnClickListener {
+            setDefaultState(regCityEdit)
+            val fragment = MultiChoiceDialogFragment.Builder()
+                .setSingleChoice(true)
+                .setChoises(viewModel.cities)
+                .setSearch(true)
+                .setTitle("Выберите город")
+                .setCallback(this)
+                .build()
+
+            val fragmentTransaction = supportFragmentManager.beginTransaction()
+            fragment.show(fragmentTransaction, fragment.javaClass.name)
         }
     }
 

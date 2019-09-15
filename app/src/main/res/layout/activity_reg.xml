@@ -223,10 +223,36 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"/>
 
+                <ImageView
+                        android:layout_marginTop="5dp"
+                        android:id="@+id/reg_write_city"
+                        app:layout_constraintTop_toBottomOf="@id/rewrite_reg_passIn"
+                        app:layout_constraintLeft_toLeftOf="@id/rewrite_reg_passIn"
+                        android:src="@drawable/ic_location_city"
+                        android:layout_width="30dp"
+                        android:layout_height="40dp"/>
+
+                <EditText
+                        android:id="@+id/regCityEdit"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="36dp"
+                        android:hint="Выберите город"
+                        android:textColor="@color/black"
+                        android:background="@color/colorTransparent"
+                        android:textStyle="italic"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintLeft_toRightOf="@id/reg_write_city"
+                        app:layout_constraintTop_toBottomOf="@id/regPassRewriteEdit"
+                        android:layout_marginTop="18dp"
+                        android:layout_width="0dp"
+                        android:focusable="false"
+                        android:drawableEnd="@drawable/ic_search_black_find"
+                        android:layout_height="wrap_content"/>
+
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                         android:id="@+id/reg_radio_group_all"
-                        app:layout_constraintTop_toBottomOf="@id/regPassRewriteEdit"
+                        app:layout_constraintTop_toBottomOf="@id/regCityEdit"
                         app:layout_constraintRight_toRightOf="parent"
                         app:layout_constraintLeft_toLeftOf="parent"
                         android:layout_width="match_parent"
@@ -411,7 +437,7 @@
                                 android:hint="Возраст"
                                 android:textColor="@color/black"
                                 android:background="@color/colorTransparent"
-                                android:inputType="text"
+                                android:inputType="number"
                                 android:textStyle="italic"
                                 app:layout_constraintRight_toRightOf="parent"
                                 app:layout_constraintLeft_toRightOf="@id/reg_name_age"

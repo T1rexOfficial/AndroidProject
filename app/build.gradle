@@ -57,4 +57,7 @@ dependencies {
     api 'com.theartofdev.edmodo:android-image-cropper:2.8.+'
     implementation 'id.zelory:compressor:2.1.0'
 
+
+    implementation 'com.jakewharton.timber:timber:4.7.1'
+
 }

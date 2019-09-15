@@ -1,6 +1,7 @@
 package com.example.help_me
 
 import com.example.help_me.base.CoroutineProvider
+import com.example.help_me.presentation.auth.registration.RegViewModel
 import com.example.help_me.presentation.sample.SampleRepository
 import com.example.help_me.presentation.sample.SampleViewModel
 import com.google.firebase.database.FirebaseDatabase
@@ -27,17 +28,8 @@ val appModule = module {
     viewModel {
         SampleViewModel(get())
     }
-}
 
-inline fun <reified T> createWebService(okHttpClient: OkHttpClient, url: String): T {
-    val gson = GsonBuilder()
-        .setLenient()
-        .create()
-
-    val retrofit = Retrofit.Builder()
-        .baseUrl(url)
-        .client(okHttpClient)
-        .addCallAdapterFactory(CoroutineCallAdapterFactory())
-        .addConverterFactory(GsonConverterFactory.create(gson)).build()
-    return retrofit.create(T::class.java)
+    viewModel {
+        RegViewModel()
+    }
 }
