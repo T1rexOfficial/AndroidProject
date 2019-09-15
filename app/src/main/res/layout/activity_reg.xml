@@ -71,7 +71,6 @@
                     android:layout_height="wrap_content"/>
 
             <androidx.constraintlayout.widget.ConstraintLayout
-
                     android:id="@+id/social_sites_reg"
                     app:layout_constraintTop_toBottomOf="@id/text_reg"
                     android:layout_width="match_parent"
@@ -130,25 +129,408 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-
-
-
-
-            <Button
-                    android:id="@+id/regBtnReg"
-                    android:background="@drawable/oval_button"
+            <TextView
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/black"
+                    android:text="Регистрация"
+                    android:textSize="20sp"
+                    android:textStyle="italic"
+                    app:layout_constraintTop_toBottomOf="@id/social_sites_reg"
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginRight="36dp"
-                    android:layout_marginLeft="36dp"
-                    android:textAllCaps="false"
-                    android:text="Зарегистрироваться"
-                    android:textSize="25dp"
-                    android:textColor="@color/white"
-                    app:layout_constraintTop_toBottomOf="@id/social_sites_reg"
-                    android:layout_width="0dp"
+                    android:id="@+id/text_reg_reg"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/text_reg_reg"
+                    android:id="@+id/reg_list_reg"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                <ImageView
+                        android:id="@+id/reg_mailIn"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        android:src="@drawable/ic_person"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginLeft="36dp"
+                        android:layout_width="30dp"
+                        android:layout_height="40dp"/>
+                <EditText
+                        android:id="@+id/reg_MailEditId"
+                        android:inputType="text"
+                        android:textColor="@color/black"
+                        app:layout_constraintLeft_toRightOf="@id/reg_mailIn"
+                        android:layout_marginTop="15dp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:layout_marginLeft="5dp"
+                        android:layout_width="0dp"
+                        android:textStyle="italic"
+                        android:background="@color/colorTransparent"
+                        android:hint="Login"
+                        app:layout_constraintRight_toRightOf="parent"
+                        android:layout_marginRight="36dp"
+                        android:layout_height="wrap_content"/>
+
+                <ImageView
+                        android:src="@drawable/ic_auth_pass"
+                        app:layout_constraintTop_toBottomOf="@id/reg_mailIn"
+                        app:layout_constraintLeft_toLeftOf="@id/reg_mailIn"
+                        android:id="@+id/reg_passIn"
+                        android:layout_width="30dp"
+                        android:layout_height="40dp"/>
+                <EditText
+                        android:id="@+id/regPassEditId"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="36dp"
+                        android:hint="Password"
+                        android:textColor="@color/black"
+                        android:background="@color/colorTransparent"
+                        android:inputType="textPassword"
+                        android:textStyle="italic"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintLeft_toRightOf="@id/reg_passIn"
+                        app:layout_constraintTop_toBottomOf="@id/reg_MailEditId"
+                        android:layout_marginTop="18dp"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"/>
+
+                <ImageView
+                        android:id="@+id/rewrite_reg_passIn"
+                        app:layout_constraintTop_toBottomOf="@id/reg_passIn"
+                        app:layout_constraintLeft_toLeftOf="@id/reg_passIn"
+                        android:src="@drawable/ic_lock_outline_close"
+                        android:layout_width="30dp"
+                        android:layout_height="40dp"/>
+
+                <EditText
+                        android:id="@+id/regPassRewriteEdit"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="36dp"
+                        android:hint="Rewrite password"
+                        android:textColor="@color/black"
+                        android:background="@color/colorTransparent"
+                        android:inputType="textPassword"
+                        android:textStyle="italic"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintLeft_toRightOf="@id/rewrite_reg_passIn"
+                        app:layout_constraintTop_toBottomOf="@id/regPassEditId"
+                        android:layout_marginTop="18dp"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"/>
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/reg_radio_group_all"
+                        app:layout_constraintTop_toBottomOf="@id/regPassRewriteEdit"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="20dp"
+                        android:layout_height="wrap_content">
+
+                    <RadioGroup
+                            android:id="@+id/reg_radio_button"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:gravity="center_horizontal"
+                            android:layout_marginStart="36dp"
+                            android:layout_marginEnd="36dp"
+                            android:weightSum="5"
+                            android:layout_height="wrap_content">
+
+                            <RadioButton
+                                    android:id="@+id/reg_radio_button_human"
+                                    android:button="@null"
+                                    android:layout_weight="2"
+                                    android:paddingTop ="10dp"
+                                    android:paddingBottom="10dp"
+                                    android:background="@drawable/switch_choice_button"
+                                    android:textColor="@color/black"
+                                    android:text="Пользователь"
+                                    android:textSize="14sp"
+                                    android:gravity="center"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"/>
+
+                            <RadioButton
+                                    android:id="@+id/reg_radio_button_company"
+                                    android:button="@null"
+                                    android:layout_weight="3"
+                                    android:paddingTop ="10dp"
+                                    android:paddingBottom="10dp"
+                                    android:background="@drawable/switch_choice_button"
+                                    android:textColor="@color/black"
+                                    android:text="Компания"
+                                    android:textSize="14sp"
+                                    android:gravity="center"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"/>
+
+                    </RadioGroup>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                            android:visibility="gone"
+                            android:id="@+id/reg_const_person"
+                            android:layout_width="match_parent"
+                            android:layout_marginTop="10dp"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/reg_radio_button"
+                            android:layout_height="0dp">
+
+
+                        <TextView
+                                android:textColor="@color/black"
+                                android:text="Регистрация пользователя"
+                                android:textSize="20sp"
+                                android:textStyle="italic"
+                                app:layout_constraintTop_toTopOf="parent"
+
+                                app:layout_constraintRight_toRightOf="parent"
+                                app:layout_constraintLeft_toLeftOf="parent"
+                                android:id="@+id/text_reg_person"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+
+                        <RadioGroup
+                                android:id="@+id/reg_radio_button_male_all"
+                                app:layout_constraintTop_toBottomOf="@id/text_reg_person"
+                                app:layout_constraintRight_toRightOf="parent"
+                                app:layout_constraintLeft_toLeftOf="parent"
+                                android:orientation="horizontal"
+                                android:layout_width="match_parent"
+                                android:gravity="center_horizontal"
+                                android:layout_marginStart="36dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginEnd="36dp"
+                                android:weightSum="6"
+                                android:layout_height="wrap_content">
+
+                            <RadioButton
+                                    android:id="@+id/reg_radio_button_male"
+                                    android:button="@null"
+                                    android:layout_weight="3"
+                                    android:paddingTop ="10dp"
+                                    android:paddingBottom="10dp"
+                                    android:background="@drawable/switch_choice_button"
+                                    android:textColor="@color/black"
+                                    android:text="Мужской"
+                                    android:textSize="14sp"
+                                    android:gravity="center"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"/>
+
+                            <RadioButton
+                                    android:id="@+id/reg_radio_button_female"
+                                    android:button="@null"
+                                    android:layout_weight="3"
+                                    android:paddingTop ="10dp"
+                                    android:paddingBottom="10dp"
+                                    android:background="@drawable/switch_choice_button"
+                                    android:textColor="@color/black"
+                                    android:text="Женский"
+                                    android:textSize="14sp"
+                                    android:gravity="center"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"/>
+
+                        </RadioGroup>
+
+                        <ImageView
+                                android:id="@+id/reg_name_person"
+                                app:layout_constraintTop_toBottomOf="@id/reg_radio_button_male_all"
+
+                                app:layout_constraintLeft_toLeftOf="parent"
+                                android:src="@drawable/ic_account_box_name"
+                                android:layout_marginTop="8dp"
+                                android:layout_marginLeft="36dp"
+                                android:layout_width="30dp"
+                                android:layout_height="40dp"/>
+
+                        <EditText
+                                android:id="@+id/reg_edit_name_person"
+                                android:inputType="text"
+                                android:textColor="@color/black"
+                                app:layout_constraintLeft_toRightOf="@id/reg_name_person"
+                                android:layout_marginTop="15dp"
+                                app:layout_constraintTop_toBottomOf="@id/reg_radio_button_male_all"
+                                android:layout_marginLeft="5dp"
+                                android:layout_width="0dp"
+                                android:textStyle="italic"
+                                android:background="@color/colorTransparent"
+                                android:hint="Name"
+                                app:layout_constraintRight_toRightOf="parent"
+                                android:layout_marginRight="36dp"
+                                android:layout_height="wrap_content"/>
+
+                        <ImageView
+                                android:src="@drawable/ic_account_circle_surname"
+                                app:layout_constraintTop_toBottomOf="@id/reg_name_person"
+                                app:layout_constraintLeft_toLeftOf="@id/reg_name_person"
+                                android:id="@+id/reg_name_surname"
+                                android:layout_width="30dp"
+                                android:layout_height="40dp"/>
+
+                        <EditText
+                                android:id="@+id/reg_edit_surname_person"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginRight="36dp"
+                                android:hint="Surname"
+                                android:textColor="@color/black"
+                                android:background="@color/colorTransparent"
+                                android:inputType="textPassword"
+                                android:textStyle="italic"
+                                app:layout_constraintRight_toRightOf="parent"
+                                app:layout_constraintLeft_toRightOf="@id/reg_name_surname"
+                                app:layout_constraintTop_toBottomOf="@id/reg_edit_name_person"
+                                android:layout_marginTop="18dp"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"/>
+
+                        <ImageView
+                                android:layout_marginTop="4dp"
+                                android:src="@drawable/ic_favorite_black_hp"
+                                app:layout_constraintTop_toBottomOf="@id/reg_name_surname"
+                                app:layout_constraintLeft_toLeftOf="@id/reg_name_person"
+                                android:id="@+id/reg_name_age"
+                                android:layout_width="30dp"
+                                android:layout_height="40dp"/>
+
+                        <EditText
+                                android:id="@+id/reg_edit_surname_age"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginRight="36dp"
+                                android:hint="Age"
+                                android:textColor="@color/black"
+                                android:background="@color/colorTransparent"
+                                android:inputType="text"
+                                android:textStyle="italic"
+                                app:layout_constraintRight_toRightOf="parent"
+                                app:layout_constraintLeft_toRightOf="@id/reg_name_age"
+                                app:layout_constraintTop_toBottomOf="@id/reg_edit_surname_person"
+                                android:layout_marginTop="18dp"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"/>
+
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/reg_const_company"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            android:visibility="gone"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/reg_radio_button"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp">
+
+                        <TextView
+                                android:textColor="@color/black"
+                                android:text="Регистрация компании"
+                                android:textSize="20sp"
+                                android:textStyle="italic"
+                                app:layout_constraintTop_toTopOf="parent"
+
+                                app:layout_constraintRight_toRightOf="parent"
+                                app:layout_constraintLeft_toLeftOf="parent"
+                                android:id="@+id/text_reg_company"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+
+                        <ImageView
+                                android:id="@+id/reg_name_company"
+                                app:layout_constraintTop_toBottomOf="@id/text_reg_company"
+
+                                app:layout_constraintLeft_toLeftOf="parent"
+                                android:src="@drawable/ic_group_black"
+                                android:layout_marginTop="8dp"
+                                android:layout_marginLeft="36dp"
+                                android:layout_width="30dp"
+                                android:layout_height="40dp"/>
+
+                        <EditText
+                                android:id="@+id/reg_edit_name_company"
+                                android:inputType="text"
+                                android:textColor="@color/black"
+                                app:layout_constraintLeft_toRightOf="@id/reg_name_company"
+                                android:layout_marginTop="15dp"
+                                app:layout_constraintTop_toBottomOf="@id/text_reg_company"
+                                android:layout_marginLeft="5dp"
+                                android:layout_width="0dp"
+                                android:textStyle="italic"
+                                android:background="@color/colorTransparent"
+                                android:hint="Name"
+                                app:layout_constraintRight_toRightOf="parent"
+                                android:layout_marginRight="36dp"
+                                android:layout_height="wrap_content"/>
+
+                        <ImageView
+                                android:src="@drawable/ic_code_black_site"
+                                app:layout_constraintTop_toBottomOf="@id/reg_name_company"
+                                app:layout_constraintLeft_toLeftOf="@id/reg_name_company"
+                                android:id="@+id/reg_site_company"
+                                android:layout_width="30dp"
+                                android:layout_height="40dp"/>
+
+                        <EditText
+                                android:id="@+id/reg_edit_site_company"
+                                android:inputType="text"
+                                android:textColor="@color/black"
+                                app:layout_constraintLeft_toRightOf="@id/reg_site_company"
+                                android:layout_marginTop="15dp"
+                                app:layout_constraintTop_toBottomOf="@id/reg_edit_name_company"
+                                android:layout_marginLeft="5dp"
+                                android:layout_width="0dp"
+                                android:textStyle="italic"
+                                android:background="@color/colorTransparent"
+                                android:hint="Website"
+                                app:layout_constraintRight_toRightOf="parent"
+                                android:layout_marginRight="36dp"
+                                android:layout_height="wrap_content"/>
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <Button
+                        android:id="@+id/regBtnReg"
+                        android:background="@drawable/oval_button2"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginRight="36dp"
+                        android:layout_marginLeft="36dp"
+                        android:layout_marginBottom="32dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:text="Зарегистрироваться"
+                        android:textAllCaps="false"
+                        android:textSize="25dp"
+                        android:textColor="@color/white"
+                        app:layout_constraintTop_toBottomOf="@id/reg_radio_group_all"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"/>
+
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

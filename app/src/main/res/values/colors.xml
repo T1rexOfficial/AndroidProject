@@ -36,7 +36,7 @@
     <color name="colorTransparent">#00000000</color>
     <color name="white">#ffffffff</color>
     <color name="gold">#FFD700</color>
-
+    <color name="myGreen">#4cc083</color>
     <color name="level1">@color/gray</color>
     <color name="level2">#76ff76</color>
     <color name="level3">#77ddbb</color>
@@ -47,7 +47,8 @@
     <color name="level8">#ff7777</color>
     <color name="level9">#fe3433</color>
     <color name="level10">#aa0001</color>
-
+    <color name="myBlue">#3a80c5</color>
+    <color name="myMidBlueGreen">#4ac3a4</color>
     <color name="statusSuccess">#25b473</color>
     <color name="darkGreen">#008400</color>
     <color name="inColor">#3D0646</color>
