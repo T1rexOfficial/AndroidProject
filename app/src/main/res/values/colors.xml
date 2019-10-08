@@ -9,7 +9,7 @@
     <color name="bottom_sheet_dialog_color">@color/white</color>
     <color name="brand_red">#ffd81921</color>
     <color name="colorAccent">#4ac3a4</color>
-    <color name="colorPrimary">#8c52ff</color>
+    <color name="colorPrimary">#4ac3a4</color>
     <color name="colorPrimaryDark">#2F0F81</color>
     <color name="dark_gray">#ff777777</color>
     <color name="windowBackground">@color/colorPrimaryDark</color>

@@ -7,16 +7,21 @@ import com.example.help_me.entities.Sample
 class SampleViewModel(private val repository: SampleRepository) : BaseViewModel() {
 
     val sampleListLiveData = MutableLiveData<ArrayList<Sample>>()
-
     fun postSample(sampleObject: Sample) {
-        repository.postSample(sampleObject)
+        makeRequest({repository.postSample(sampleObject)}){ res->
+            unwrap(res){
+                messageLiveData.value = "Успешно добавлено!"
+            }
+        }
+
     }
 
-    fun getSamples(){
-        makeRequest({repository.getSamples()}){ res->
-            unwrap(res){
+    fun getSamples() {
+        makeRequest({ repository.getSamples() }) { res ->
+            unwrap(res) {
                 sampleListLiveData.value = it as ArrayList<Sample>
             }
         }
     }
+
 }
