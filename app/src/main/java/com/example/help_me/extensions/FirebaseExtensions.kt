@@ -1,5 +1,6 @@
 package com.example.help_me.extensions
 
+import android.net.Uri
 import com.example.help_me.App
 import com.example.help_me.entities.AsyncResult
 import com.example.help_me.entities.Company
@@ -7,6 +8,7 @@ import com.example.help_me.entities.Table
 import com.example.help_me.entities.User
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
+import com.google.firebase.storage.StorageReference
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import kotlin.coroutines.resume
@@ -127,6 +129,25 @@ suspend inline fun FirebaseAuth.registerCompany(company: Company): AsyncResult<C
                     FirebaseDatabase.getInstance().reference.child(Table.COMPANY).child(id).setValue(company)
                     continuation.resume(AsyncResult.Success(company))
                 }.addOnFailureListener {
+                    continuation.resume(AsyncResult.Error(it.localizedMessage.orEmpty(), 0))
+                }
+        }
+    }
+}
+
+suspend fun StorageReference.uploadFile(uri: Uri, fileFormat: String = "jpg"): AsyncResult<Uri> {
+    return withContext(Dispatchers.Default) {
+        suspendCoroutine<AsyncResult<Uri>> { continuation ->
+            this@uploadFile.child(Table.STORAGE_PATH_UPLOADS + "-" + System.currentTimeMillis() + ".$fileFormat")
+                .putFile(uri)
+                .addOnSuccessListener {
+                    it.storage.downloadUrl.addOnSuccessListener { link ->
+                        continuation.resume(AsyncResult.Success(link))
+                    }.addOnFailureListener { error ->
+                        continuation.resume(AsyncResult.Error(error.localizedMessage.orEmpty(), 0))
+                    }
+                }
+                .addOnFailureListener {
                     continuation.resume(AsyncResult.Error(it.localizedMessage.orEmpty(), 0))
                 }
         }

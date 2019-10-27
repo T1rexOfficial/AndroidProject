@@ -22,6 +22,10 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".presentation.req_detail.ReqDetailActivity">
+        </activity>
+        <activity android:name=".presentation.shared_pref.SharedPrefActivity">
+        </activity>
         <activity android:name=".presentation.notifications.NotificationsFragment">
         </activity>
         <activity android:name=".presentation.profile.ProfileFragment">

@@ -109,4 +109,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/-->
 
+
+    <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/req_list"
+            android:layout_marginTop="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/constHome"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+    </androidx.recyclerview.widget.RecyclerView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

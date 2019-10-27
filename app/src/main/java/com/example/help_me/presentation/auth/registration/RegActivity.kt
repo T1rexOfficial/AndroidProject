@@ -15,6 +15,7 @@ import androidx.lifecycle.Observer
 import com.example.help_me.Main2Activity
 import com.example.help_me.R
 import com.example.help_me.extensions.alert
+import com.example.help_me.extensions.loadImage
 import com.example.help_me.extensions.toast
 import com.example.help_me.presentation.auth.pre.PreActivity
 import com.example.help_me.presentation.dialogs.ChoiceItem
@@ -83,6 +84,11 @@ class RegActivity : AppCompatActivity(), MultiChoiceDialogFragment.DataReceiver 
         reg_photoAccauntBox.setOnClickListener {
             setAccountListener()
         }
+
+        viewModel.downloadUriLiveData.observe(this, Observer {
+            photoAccountImageView.loadImage(it.toString(), this, R.drawable.ic_account_circle)
+            viewModel.userPhotoUrl = it.toString()
+        })
 
         regBtnReg.setOnClickListener {
 
@@ -157,8 +163,8 @@ class RegActivity : AppCompatActivity(), MultiChoiceDialogFragment.DataReceiver 
                     CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE -> {
                         val result = CropImage.getActivityResult(data)
                         photoAccountImageView.setImageURI(result.uri)
-                        val file = Compressor(this).compressToFile(File(result.uri.path ?: ""))
-                        //viewModel.uploadStatementFile(file)
+                        viewModel.uploadFile(result.uri)
+
                     }
                     CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE -> {
                         val result = CropImage.getActivityResult(data)

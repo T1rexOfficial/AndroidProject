@@ -1,5 +1,6 @@
 package com.example.help_me.presentation.auth.registration;
 
+import android.net.Uri
 import androidx.lifecycle.MutableLiveData
 import com.example.help_me.base.BaseViewModel
 import com.example.help_me.entities.Company
@@ -10,8 +11,10 @@ import com.example.help_me.presentation.dialogs.ChoiceType
 class RegViewModel (val repository: RegRepository): BaseViewModel() {
     val regLiveData = MutableLiveData<String>()
 
-    fun register(login: String, password: String, city:String, gender:String, name:String, surname:String, age:String ) {
-        makeRequest({ repository.register(User(login, password, city, gender, name, surname, age)) }) { res ->
+    var userPhotoUrl:String? = null
+
+    fun register(login: String, password: String, city:String, gender:String, name:String, surname:String, age:String) {
+        makeRequest({ repository.register(User(login, password, city, gender, name, surname, age, userPhotoUrl)) }) { res ->
             unwrap(res) {
                 regLiveData.value = "${it.name}, вы успешно зарегистрировались!"
             }
@@ -19,11 +22,22 @@ class RegViewModel (val repository: RegRepository): BaseViewModel() {
     }
 
     fun registerCompany(login: String, password: String, city:String, title:String, website:String) {
-        makeRequest({ repository.registerCompany(Company(login, password, city, title, website)) }) { res ->
+        makeRequest({ repository.registerCompany(Company(login, password, city, title, website, userPhotoUrl)) }) { res ->
             unwrap(res) {
                 regLiveData.value = "${it.title}, вы успешно зарегистрировались!"
             }
         }
+    }
+
+    val downloadUriLiveData = MutableLiveData<Uri>()
+
+    fun uploadFile(uri: Uri) {
+        makeRequest({repository.uploadFile(uri)}){ res->
+            unwrap(res){
+                downloadUriLiveData.value = it
+            }
+        }
+
     }
 
 
