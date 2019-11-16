@@ -21,13 +21,13 @@
             android:enabled="true"
             android:title="Уведомления"
     />
-    <item
+    <!--item
           android:icon="@drawable/ic_group_black"
           android:title="Друзья"
           android:id="@+id/navigation_friends"
           app:showAsAction="ifRoom"
           android:enabled="true"
-    />
+    /-->
     <item
             android:id="@+id/navigation_settings"
             android:title="Настройки"

@@ -46,7 +46,7 @@ class HomeFragment : BaseFragment(), OnReqClickListener, ReqListAdapter.OnReqCli
         req_list.layoutManager = LinearLayoutManager(context)
     }
 
-    override fun onClick(pos: Int, item: Req)     {
+    override fun onClick(pos: Int, item: Req) {
         val intent = Intent(context, ReqDetailActivity::class.java)
         intent.putExtra("Req", item as Serializable)
         startActivity(intent)

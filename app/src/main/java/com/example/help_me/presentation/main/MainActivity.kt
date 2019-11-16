@@ -21,14 +21,14 @@ class MainActivity : AppCompatActivity() {
         const val HOME_FRAGMENT = "HOME_FRAGMENT"
         const val PROFILE_FRAGMENT = "PROFILE_FRAGMENT"
         const val NOTIFICATIONS_FRAGMENT = "NOTIFICATIONS_FRAGMENT"
-        const val FRIENDS_FRAGMENT = "FRIENDS_FRAGMENT"
+    //    const val FRIENDS_FRAGMENT = "FRIENDS_FRAGMENT"
         const val SETTINGS_FRAGMENT = "SETTINGS_FRAGMENT"
     }
 
     private var selectedFragment = 0
 
     private var listFragment: List<Fragment> =
-        listOf(HomeFragment(), ProfileFragment(), NotificationsFragment(), FriendsFragment(), SettingsFragment())
+        listOf(HomeFragment(), ProfileFragment(), NotificationsFragment(), SettingsFragment())
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,13 +42,12 @@ class MainActivity : AppCompatActivity() {
             .add(R.id.container, listFragment[0], HOME_FRAGMENT)
             .add(R.id.container, listFragment[1], PROFILE_FRAGMENT)
             .add(R.id.container, listFragment[2], NOTIFICATIONS_FRAGMENT)
-            .add(R.id.container, listFragment[3], FRIENDS_FRAGMENT)
-            .add(R.id.container, listFragment[4], SETTINGS_FRAGMENT)
+          //  .add(R.id.container, listFragment[3], FRIENDS_FRAGMENT)
+            .add(R.id.container, listFragment[3], SETTINGS_FRAGMENT)
             .show(listFragment[0])
             .hide(listFragment[1])
             .hide(listFragment[2])
             .hide(listFragment[3])
-            .hide(listFragment[4])
 
             .commit()
 
@@ -78,16 +77,16 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
 
-                R.id.navigation_friends -> {
+//                R.id.navigation_friends -> {
+//                    if (selectedFragment != 3) {
+//                        transaction.show(listFragment[3]).hide(listFragment[selectedFragment])
+//                        selectedFragment = 3
+//                    }
+//                }
+                R.id.navigation_settings-> {
                     if (selectedFragment != 3) {
                         transaction.show(listFragment[3]).hide(listFragment[selectedFragment])
                         selectedFragment = 3
-                    }
-                }
-                R.id.navigation_settings-> {
-                    if (selectedFragment != 4) {
-                        transaction.show(listFragment[4]).hide(listFragment[selectedFragment])
-                        selectedFragment = 4
                     }
                 }
             }

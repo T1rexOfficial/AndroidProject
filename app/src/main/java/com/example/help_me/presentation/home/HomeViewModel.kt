@@ -12,7 +12,10 @@ class HomeViewModel : BaseViewModel() {
         list.apply {
             add (
                 Req(
-                    "Помощь со скамейками", "Бостандыкский район",
+                    "Помощь со скамейками", "ул. Абулхаир хана, дом 46а, квартира 54",
+                    "Бостандыкский район",
+                    "qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq  aksfhskjadfhkjsadhfkjasdhfkjasdhfkjashd fahsdjfhskadhfkasdhfkajs",
+
                     pictureUrls = arrayListOf(
                         "https://images.ru.prom.st/431388385_w640_h640_kovanye-skamejki.jpg",
                         "https://cdn.bitrix24.kz/b8032533/landing/2de/2de11d654ef2d4260d5200108ea39325/bench1.jpg",
