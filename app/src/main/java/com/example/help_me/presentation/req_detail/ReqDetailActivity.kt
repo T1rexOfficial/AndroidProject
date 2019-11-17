@@ -12,6 +12,9 @@ import androidx.fragment.app.Fragment
 import com.example.help_me.entities.User
 import com.example.help_me.entities.Company
 import com.example.help_me.presentation.req_detail.req_info.ReqInfoFragment
+import com.example.help_me.presentation.req_detail.req_list.ReqListFragment
+
+const val REQ = "req"
 
 class ReqDetailActivity : AppCompatActivity() {
 
@@ -50,8 +53,10 @@ class ReqDetailActivity : AppCompatActivity() {
         val fragments = ArrayList <Fragment> ()
 
         fragments.apply {
-            add (ReqInfoFragment.newInstance())
-            val bundle = Bundle ()
+            val bundleInfo = Bundle()
+            bundleInfo.putSerializable(REQ, req)
+            add (ReqInfoFragment.newInstance(bundleInfo))
+            val bundleList = Bundle ()
             val list = ArrayList<Any>().apply {
                 add (User (name = "Aaaaa1", surname = "Bbbbb1", city = "Almaty", age = "20"))
                 add (Company (title = "Aaaaa2", city = "Astana"))
@@ -59,8 +64,8 @@ class ReqDetailActivity : AppCompatActivity() {
                 add (Company (title = "Aaaaa4", city = "Astana"))
             }
 
-            bundle.putSerializable("list",list )
-            add(ReqListFragment.newInstance(bundle))
+            bundleList.putSerializable("list",list )
+            add(ReqListFragment.newInstance(bundleList))
         }
 
         val imagePagerAdapter = ImagePagerAdapter(supportFragmentManager, req.pictureUrls as ArrayList<String>)
