@@ -58,9 +58,9 @@ class ReqDetailActivity : AppCompatActivity() {
             add (ReqInfoFragment.newInstance(bundleInfo))
             val bundleList = Bundle ()
             val list = ArrayList<Any>().apply {
-                add (User (name = "Aaaaa1", surname = "Bbbbb1", city = "Almaty", age = "20"))
+                add (User (name = "Aaaaa1", surname = "Bbbbb1", city = "Almaty"))
                 add (Company (title = "Aaaaa2", city = "Astana"))
-                add (User (name = "Aaaaa3", surname = "Bbbbb3", city = "Taraz", age = "25"))
+                add (User (name = "Aaaaa3", surname = "Bbbbb3", city = "Taraz"))
                 add (Company (title = "Aaaaa4", city = "Astana"))
             }
 

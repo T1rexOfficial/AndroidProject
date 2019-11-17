@@ -21,11 +21,13 @@ class ReqListAdapter : RecyclerView.Adapter <ReqListAdapter.MyViewHolder>() {
     }
 
 
-
     inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
 
         fun bind (item: Any) {
-
+x
+        }
+        init {
+            itemView.setOnClickListener(this)
         }
 
     }
