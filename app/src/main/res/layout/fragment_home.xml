@@ -57,9 +57,6 @@
                 android:layout_width="170dp"
                 android:layout_height="200dp"/>
 
-
-
-
         <TextView
                 android:text="ТОП ЗАЯВОК"
                 android:textSize="30dp"
@@ -77,7 +74,7 @@
                 app:layout_constraintRight_toRightOf="parent"
                 android:id="@+id/textGoldTTopHome"
                 android:layout_marginTop="10dp"
-                android:text="Топ 10 выполненных заявок, отсортированные по количеству просмотров и лайков"
+                android:text="Топ 10 выполненных заявок, отсортированные по количеству просмотров и участников"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"/>
 
