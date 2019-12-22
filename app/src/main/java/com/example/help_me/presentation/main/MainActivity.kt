@@ -77,12 +77,6 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
 
-//                R.id.navigation_friends -> {
-//                    if (selectedFragment != 3) {
-//                        transaction.show(listFragment[3]).hide(listFragment[selectedFragment])
-//                        selectedFragment = 3
-//                    }
-//                }
                 R.id.navigation_settings-> {
                     if (selectedFragment != 3) {
                         transaction.show(listFragment[3]).hide(listFragment[selectedFragment])

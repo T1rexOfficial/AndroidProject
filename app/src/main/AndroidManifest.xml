@@ -22,6 +22,8 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".presentation.main.AddReqActivity">
+        </activity>
         <activity android:name=".presentation.req_detail.ReqDetailActivity">
         </activity>
         <activity android:name=".presentation.shared_pref.SharedPrefActivity">

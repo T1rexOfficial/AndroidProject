@@ -8,7 +8,9 @@ data class User(
     var name: String? = null,
     var surname: String? = null,
     var age: String? = null,
-    var photoURL: String? = null
+    var photoURL: String? = null,
+    var complReqList: List<Req>? = null,
+    var crReqList: List<Req>? = null
     ){
     constructor() : this(null, null, null, null, null, null, null)
 }

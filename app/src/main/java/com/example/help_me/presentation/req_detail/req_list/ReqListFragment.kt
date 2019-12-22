@@ -28,10 +28,7 @@ class ReqListFragment : BaseFragment(), ReqListAdapter.OnItemClickListener {
     }
     override fun layoutId() = R.layout.fragment_req_list
 
-
     lateinit var adapter: ReqListAdapter
-    private var partList = ArrayList<Any>()
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

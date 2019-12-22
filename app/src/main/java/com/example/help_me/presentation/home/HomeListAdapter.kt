@@ -1,20 +1,16 @@
 package com.example.help_me.presentation.home
 
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.help_me.R
 import com.example.help_me.entities.Req
 import com.example.help_me.extensions.loadImage
 import kotlinx.android.synthetic.main.item_req.view.*
 
-import java.io.Serializable
 
-
-class ReqListAdapter : RecyclerView.Adapter<ReqListAdapter.ReqViewHolder>() {
+class HomeListAdapter : RecyclerView.Adapter<HomeListAdapter.ReqViewHolder>() {
 
     var fragment: HomeFragment? = null
 
@@ -44,6 +40,8 @@ class ReqListAdapter : RecyclerView.Adapter<ReqListAdapter.ReqViewHolder>() {
         fun bindView(item: Req) {
 
             view.titleReq.text = item.titleReq
+            view.addressReq.text = item.addressReq + " р."
+
             try {
                 view.bgImage.loadImage(item.pictureUrls?.get(0) ?: "", view.context)
             } catch (e: Exception) {

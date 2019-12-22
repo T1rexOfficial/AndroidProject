@@ -7,6 +7,7 @@ data class Company(
     var title: String? = null,
     var website: String? = null,
     var photoURL: String? = null
-){
+    var complReqList: List<Req>? = null
+    ){
     constructor() : this(null, null, null, null, null)
 }

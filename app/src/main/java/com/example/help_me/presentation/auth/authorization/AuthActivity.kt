@@ -18,10 +18,6 @@ class AuthActivity : AppCompatActivity() {
 
     lateinit var viewModel: AuthViewModel
 
-    /**
-     * Нужно для авторизации через гугл аккаунт
-     */
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_auth)
@@ -38,9 +34,9 @@ class AuthActivity : AppCompatActivity() {
         /**
          * Показывает тост сообщение при успешной авторизации
          */
+
         viewModel.loginLiveData.observe(this, Observer {
             toast(it)
-            authBtnIn.isEnabled = true
             startActivity(Intent(this, MainActivity::class.java))
             finish()
         })

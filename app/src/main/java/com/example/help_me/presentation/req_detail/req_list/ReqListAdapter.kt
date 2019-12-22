@@ -30,8 +30,7 @@ class ReqListAdapter : RecyclerView.Adapter <RecyclerView.ViewHolder>() {
         return when(viewType) {
             1 -> {
                 UserViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_user, parent, false))
-            }
-            else -> {
+            } else -> {
                 CompanyViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_company, parent ,false))
             }
         }
@@ -50,8 +49,7 @@ class ReqListAdapter : RecyclerView.Adapter <RecyclerView.ViewHolder>() {
         when (dataset[position]) {
             is User -> {
                 (holder as UserViewHolder).bindView(dataset[position] as User)
-            }
-            else -> {
+            } else -> {
                 (holder as CompanyViewHolder).bindView(dataset[position] as Company)
             }
         }
@@ -74,7 +72,6 @@ class CompanyViewHolder(view: View): RecyclerView.ViewHolder(view) {
 class UserViewHolder(view: View): RecyclerView.ViewHolder(view) {
 
     fun bindView(user: User) {
-
         itemView.item_user_namesurname.text = user.name + " " + user.surname
         itemView.city_item_user.text = user.city
     }
