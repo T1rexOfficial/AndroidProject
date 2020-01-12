@@ -7,6 +7,7 @@ import com.example.help_me.presentation.auth.authorization.AuthViewModel
 import com.example.help_me.presentation.auth.registration.RegRepository
 import com.example.help_me.presentation.auth.registration.RegViewModel
 import com.example.help_me.presentation.home.HomeViewModel
+import com.example.help_me.presentation.main.AddReqViewModel
 import com.example.help_me.presentation.sample.SampleRepository
 import com.example.help_me.presentation.sample.SampleViewModel
 import com.google.firebase.auth.FirebaseAuth
@@ -67,5 +68,9 @@ val appModule = module {
 
     viewModel {
         HomeViewModel()
+    }
+
+    viewModel {
+        AddReqViewModel(get())
     }
 }

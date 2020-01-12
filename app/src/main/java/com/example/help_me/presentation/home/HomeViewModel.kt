@@ -3,9 +3,34 @@ package com.example.help_me.presentation.home
 import androidx.lifecycle.MutableLiveData
 import com.example.help_me.base.BaseViewModel
 import com.example.help_me.entities.Req
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
+
+const val REQUESTS = "REQUESTS"
 
 class HomeViewModel : BaseViewModel() {
+    val database = FirebaseDatabase.getInstance().reference
     var ReqLiveData = MutableLiveData<List<Req>>()
+
+    fun getReqList() {
+        database.child(REQUESTS).addValueEventListener(object: ValueEventListener {
+            override fun onCancelled(p0: DatabaseError) {}
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                val reqList = ArrayList<Req>()
+                for (postSnapshot in dataSnapshot.children) {
+                    val result = postSnapshot.getValue(Req::class.java)
+                    if (result != null) {
+                        reqList.add(result)
+                    }
+                }
+                ReqLiveData.value = reqList
+            }
+        })
+    }
+
+
 
     fun getReq_s () {
         val list = ArrayList<Req>()

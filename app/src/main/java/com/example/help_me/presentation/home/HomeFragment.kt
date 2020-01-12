@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.lifecycle.Observer
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.help_me.App
 import com.example.help_me.R
 import com.example.help_me.base.BaseFragment
 import com.example.help_me.entities.Req
@@ -25,7 +26,7 @@ class HomeFragment : BaseFragment(), OnReqClickListener, HomeListAdapter.OnReqCl
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewModel = getViewModel()
-        viewModel.getReq_s()
+        viewModel.getReqList()
         HomeListAdapter = HomeListAdapter()
         HomeListAdapter.fragment = this
         HomeListAdapter.reqClickListener = this
@@ -38,9 +39,15 @@ class HomeFragment : BaseFragment(), OnReqClickListener, HomeListAdapter.OnReqCl
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        //viewModel.addReq(Req())
         setAdapter()
         fab_homepage.setOnClickListener {
             startActivity(Intent(context, AddReqActivity::class.java))
+        }
+        if (App.company == null) {
+            fab_homepage.show()
+        } else {
+            fab_homepage.hide()
         }
     }
 

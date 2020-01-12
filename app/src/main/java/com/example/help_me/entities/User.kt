@@ -9,6 +9,8 @@ data class User(
     var surname: String? = null,
     var age: String? = null,
     var photoURL: String? = null,
+
+    var exp: Int? = null,
     var complReqList: List<Req>? = null,
     var crReqList: List<Req>? = null
     ){

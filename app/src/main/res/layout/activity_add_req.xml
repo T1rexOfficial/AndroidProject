@@ -50,7 +50,6 @@
             android:layout_width="match_parent"
             android:layout_height="0dp">
 
-
         <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_marginTop="10dp"
                 app:layout_constraintTop_toBottomOf="@id/toolbarAddReq"
@@ -58,14 +57,41 @@
                 android:layout_height="wrap_content">
 
             <TextView
-                    android:id="@+id/id_addR_AddReq"
+                    android:id="@+id/id_addR_AddTitle"
                     android:layout_marginLeft="20dp"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
+                    android:text="Введите название заявки:"
+                    android:textSize="20sp"
+                    android:textStyle="italic"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"/>
+
+            <EditText
+                    android:id="@+id/id_edit_text_AddTitle"
+                    app:layout_constraintTop_toBottomOf="@id/id_addR_AddTitle"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:inputType="textMultiLine"
+                    android:lines="2"
+                    android:hint="Название"
+                    android:layout_marginRight="20dp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"/>
+
+            <TextView
+                    android:id="@+id/id_addR_AddReq"
+                    android:layout_marginLeft="20dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/id_edit_text_AddTitle"
+                    app:layout_constraintRight_toRightOf="parent"
                     android:text="Введите название района:"
                     android:textSize="20sp"
                     android:textStyle="italic"
+                    android:layout_marginTop="20dp"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"/>
             <EditText
@@ -144,8 +170,6 @@
                     android:layout_marginStart="20dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
-
-
 
                 <androidx.cardview.widget.CardView
                         android:id="@+id/regLoadPhotoAddReq"

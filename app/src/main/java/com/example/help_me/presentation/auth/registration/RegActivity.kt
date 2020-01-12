@@ -232,7 +232,6 @@ class RegActivity : AppCompatActivity(), MultiChoiceDialogFragment.DataReceiver 
         }
     }
 
-
     override fun onResume() {
         super.onResume()
         regBtnReg.isEnabled = true

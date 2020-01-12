@@ -37,7 +37,6 @@ class RegViewModel (val repository: RegRepository): BaseViewModel() {
                 downloadUriLiveData.value = it
             }
         }
-
     }
 
 

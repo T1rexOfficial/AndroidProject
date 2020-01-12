@@ -15,8 +15,13 @@ class ProfileFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        photoAccountImageView.loadImage(App.user?.photoURL.orEmpty(), context?:return)
-//        photoAccountImageView.loadImage(App.company?.photoURL.orEmpty(), context?:return)
+
+        if (App.company == null) {
+            photoAccountImageView.loadImage(App.user?.photoURL.orEmpty(), context ?: return)
+        }
+        else {
+            photoAccountImageView.loadImage(App.company?.photoURL.orEmpty(), context?:return)
+        }
     }
 
 }
