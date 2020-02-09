@@ -12,13 +12,13 @@ import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
+import com.example.help_me.App
 import com.example.help_me.R
 import com.example.help_me.base.Status
 import com.example.help_me.entities.Req
 import com.theartofdev.edmodo.cropper.CropImage
 import kotlinx.android.synthetic.main.activity_add_req.*
 import org.koin.androidx.viewmodel.ext.android.getViewModel
-import com.example.help_me.presentation.home.HomeFragment
 
 
 class AddReqActivity : AppCompatActivity() {
@@ -64,9 +64,11 @@ class AddReqActivity : AppCompatActivity() {
                 addressd = text2,
                 addressReq = text1,
                 explainReq = text3,
+                maker = App.user,
                 pictureUrls = viewModel.downloadUriLiveData.value
             )
             viewModel.addReq(req)
+
             onBackPressed()
         }
     }

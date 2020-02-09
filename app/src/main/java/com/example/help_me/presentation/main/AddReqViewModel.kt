@@ -17,6 +17,7 @@ class AddReqViewModel(val repository: RegRepository) : BaseViewModel() {
 
     fun addReq(req: Req) {
         database.child(REQUESTS).push().key?.let {
+            req.key = it
             database.child(REQUESTS).child(it).setValue(req)
         }
     }

@@ -14,13 +14,13 @@
             app:showAsAction="ifRoom"
             android:title="Профиль"
         />
-    <item
-            android:id="@+id/navigation_notifications"
-            android:icon="@drawable/ic_notifications_black_24dp"
-            app:showAsAction="ifRoom"
-            android:enabled="true"
-            android:title="Уведомления"
-    />
+    <!--<item-->
+            <!--android:id="@+id/navigation_notifications"-->
+            <!--android:icon="@drawable/ic_notifications_black_24dp"-->
+            <!--app:showAsAction="ifRoom"-->
+            <!--android:enabled="true"-->
+            <!--android:title="Уведомления"-->
+    <!--/>-->
     <!--item
           android:icon="@drawable/ic_group_black"
           android:title="Друзья"

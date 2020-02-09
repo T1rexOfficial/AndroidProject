@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
     companion object TAGS {
         const val HOME_FRAGMENT = "HOME_FRAGMENT"
         const val PROFILE_FRAGMENT = "PROFILE_FRAGMENT"
-        const val NOTIFICATIONS_FRAGMENT = "NOTIFICATIONS_FRAGMENT"
+     //   const val NOTIFICATIONS_FRAGMENT = "NOTIFICATIONS_FRAGMENT"
     //    const val FRIENDS_FRAGMENT = "FRIENDS_FRAGMENT"
         const val SETTINGS_FRAGMENT = "SETTINGS_FRAGMENT"
     }
@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
     private var selectedFragment = 0
 
     private var listFragment: List<Fragment> =
-        listOf(HomeFragment(), ProfileFragment(), NotificationsFragment(), SettingsFragment())
+        listOf(HomeFragment(), ProfileFragment(), SettingsFragment())
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,13 +41,13 @@ class MainActivity : AppCompatActivity() {
             supportFragmentManager.beginTransaction()
             .add(R.id.container, listFragment[0], HOME_FRAGMENT)
             .add(R.id.container, listFragment[1], PROFILE_FRAGMENT)
-            .add(R.id.container, listFragment[2], NOTIFICATIONS_FRAGMENT)
+           // .add(R.id.container, listFragment[2], NOTIFICATIONS_FRAGMENT)
           //  .add(R.id.container, listFragment[3], FRIENDS_FRAGMENT)
-            .add(R.id.container, listFragment[3], SETTINGS_FRAGMENT)
+            .add(R.id.container, listFragment[2], SETTINGS_FRAGMENT)
             .show(listFragment[0])
             .hide(listFragment[1])
             .hide(listFragment[2])
-            .hide(listFragment[3])
+            //.hide(listFragment[3])
 
             .commit()
 
@@ -70,17 +70,17 @@ class MainActivity : AppCompatActivity() {
                         selectedFragment = 1
                     }
                 }
-                R.id.navigation_notifications -> {
+//                R.id.navigation_notifications -> {
+//                    if (selectedFragment != 2) {
+//                        transaction.show(listFragment[2]).hide(listFragment[selectedFragment])
+//                        selectedFragment = 2
+//                    }
+//                }
+
+                R.id.navigation_settings-> {
                     if (selectedFragment != 2) {
                         transaction.show(listFragment[2]).hide(listFragment[selectedFragment])
                         selectedFragment = 2
-                    }
-                }
-
-                R.id.navigation_settings-> {
-                    if (selectedFragment != 3) {
-                        transaction.show(listFragment[3]).hide(listFragment[selectedFragment])
-                        selectedFragment = 3
                     }
                 }
             }

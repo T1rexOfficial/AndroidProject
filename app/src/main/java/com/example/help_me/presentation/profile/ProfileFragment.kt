@@ -22,6 +22,14 @@ class ProfileFragment : BaseFragment() {
         else {
             photoAccountImageView.loadImage(App.company?.photoURL.orEmpty(), context?:return)
         }
+
+        if (App.company == null) {
+            profileTextNamesurname.text = App.user?.name + " " + App.user?.surname + "(" + App.user?.age + ")"
+            profileOtherInfomation.text = App.user?.city
+        } else {
+            profileTextNamesurname.text = App.company?.title + " (" + App.company?.city + ")"
+            profileOtherInfomation.text = App.company?.website
+        }
     }
 
 }
