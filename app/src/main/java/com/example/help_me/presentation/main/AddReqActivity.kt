@@ -6,14 +6,20 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import kotlinx.android.synthetic.main.activity_reg.progressBar
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.Observer
 import com.example.help_me.R
+import com.example.help_me.base.Status
 import com.example.help_me.entities.Req
 import com.theartofdev.edmodo.cropper.CropImage
 import kotlinx.android.synthetic.main.activity_add_req.*
 import org.koin.androidx.viewmodel.ext.android.getViewModel
+import com.example.help_me.presentation.home.HomeFragment
+
 
 class AddReqActivity : AppCompatActivity() {
 
@@ -35,6 +41,16 @@ class AddReqActivity : AppCompatActivity() {
 
         reg_photoAccauntBoxAddReq.setOnClickListener {
             setAccountListener()
+            viewModel.statusMutableLiveData.observe(this, Observer {
+                when(it){
+                    Status.SHOW_LOADING -> {
+                        progressBar.visibility = View.VISIBLE
+                    }
+                    Status.HIDE_LOADING -> {
+                        progressBar.visibility = View.GONE
+                    }
+                }
+            })
         }
 
         id_button_save_AddReq.setOnClickListener {
@@ -51,8 +67,8 @@ class AddReqActivity : AppCompatActivity() {
                 pictureUrls = viewModel.downloadUriLiveData.value
             )
             viewModel.addReq(req)
+            onBackPressed()
         }
-
     }
 
     private fun setAccountListener() {

@@ -2,6 +2,7 @@ package com.example.help_me.presentation.home
 
 import androidx.lifecycle.MutableLiveData
 import com.example.help_me.base.BaseViewModel
+import com.example.help_me.base.Status
 import com.example.help_me.entities.Req
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -15,8 +16,11 @@ class HomeViewModel : BaseViewModel() {
     var ReqLiveData = MutableLiveData<List<Req>>()
 
     fun getReqList() {
+        set(Status.SHOW_LOADING)
         database.child(REQUESTS).addValueEventListener(object: ValueEventListener {
-            override fun onCancelled(p0: DatabaseError) {}
+            override fun onCancelled(p0: DatabaseError) {
+                set(Status.HIDE_LOADING)
+            }
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 val reqList = ArrayList<Req>()
                 for (postSnapshot in dataSnapshot.children) {
@@ -26,6 +30,7 @@ class HomeViewModel : BaseViewModel() {
                     }
                 }
                 ReqLiveData.value = reqList
+                set(Status.HIDE_LOADING)
             }
         })
     }

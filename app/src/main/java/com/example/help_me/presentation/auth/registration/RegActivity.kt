@@ -14,6 +14,7 @@ import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import com.example.help_me.Main2Activity
 import com.example.help_me.R
+import com.example.help_me.base.Status
 import com.example.help_me.extensions.alert
 import com.example.help_me.extensions.loadImage
 import com.example.help_me.extensions.toast
@@ -25,6 +26,8 @@ import com.example.help_me.presentation.main.MainActivity
 import com.theartofdev.edmodo.cropper.CropImage
 import id.zelory.compressor.Compressor
 import kotlinx.android.synthetic.main.activity_reg.*
+import kotlinx.android.synthetic.main.activity_reg.progressBar
+import kotlinx.android.synthetic.main.activity_sample.*
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 import java.io.File
 
@@ -119,6 +122,16 @@ class RegActivity : AppCompatActivity(), MultiChoiceDialogFragment.DataReceiver 
                 this.toast("Пароли не совпадают!")
             }
 
+            viewModel.statusMutableLiveData.observe(this, Observer {
+                when(it){
+                    Status.SHOW_LOADING -> {
+                        progressBar.visibility = View.VISIBLE
+                    }
+                    Status.HIDE_LOADING -> {
+                        progressBar.visibility = View.GONE
+                    }
+                }
+            })
         }
 
         /**
@@ -141,7 +154,6 @@ class RegActivity : AppCompatActivity(), MultiChoiceDialogFragment.DataReceiver 
             regBtnReg.isEnabled = true
             this.alert(message = it)
         })
-
     }
 
     private fun validate (): Boolean {
@@ -182,7 +194,6 @@ class RegActivity : AppCompatActivity(), MultiChoiceDialogFragment.DataReceiver 
         editText.error = null
         editText.setBackgroundResource(R.drawable.selector_edittext)
     }
-
 
     val permissions = arrayOf(
         Manifest.permission.CAMERA,
@@ -231,10 +242,8 @@ class RegActivity : AppCompatActivity(), MultiChoiceDialogFragment.DataReceiver 
             fragment.show(fragmentTransaction, fragment.javaClass.name)
         }
     }
-
     override fun onResume() {
         super.onResume()
         regBtnReg.isEnabled = true
     }
-
 }

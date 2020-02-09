@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.help_me.App
 import com.example.help_me.R
 import com.example.help_me.base.BaseFragment
+import com.example.help_me.base.Status
 import com.example.help_me.entities.Req
 import com.example.help_me.presentation.main.AddReqActivity
 import com.example.help_me.presentation.req_detail.ReqDetailActivity
@@ -20,7 +21,6 @@ class HomeFragment : BaseFragment(), OnReqClickListener, HomeListAdapter.OnReqCl
     private lateinit var viewModel: HomeViewModel
     private lateinit var HomeListAdapter: HomeListAdapter
 
-
     override fun layoutId() = R.layout.fragment_home
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,7 +31,16 @@ class HomeFragment : BaseFragment(), OnReqClickListener, HomeListAdapter.OnReqCl
         HomeListAdapter.fragment = this
         HomeListAdapter.reqClickListener = this
         viewModel.ReqLiveData.observe(this, ReqObserver)
-
+        viewModel.statusMutableLiveData.observe(this, Observer {
+            when(it){
+                Status.SHOW_LOADING -> {
+                    progressBar.visibility = View.VISIBLE
+                }
+                Status.HIDE_LOADING -> {
+                    progressBar.visibility = View.GONE
+                }
+            }
+        })
     }
 
     val ReqObserver = Observer<List<Req>> {

@@ -11,10 +11,7 @@ import com.example.help_me.R
 import com.example.help_me.base.BaseFragment
 
 
-/**
- * A simple [Fragment] subclass.
- *
- */
+
 class FriendsFragment : BaseFragment() {
     override fun layoutId() = R.layout.fragment_friends
 
