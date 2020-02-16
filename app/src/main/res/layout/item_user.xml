@@ -27,9 +27,8 @@
                 android:id="@+id/photoAccountImageView"
                 android:scaleType="centerCrop"
                 android:src="@drawable/ic_account_circle"
-                android:tint="@color/white"
-                android:layout_width="48dp"
-                android:layout_height="48dp"/>
+                android:layout_width="52dp"
+                android:layout_height="match_parent"/>
 
     </androidx.cardview.widget.CardView>
 

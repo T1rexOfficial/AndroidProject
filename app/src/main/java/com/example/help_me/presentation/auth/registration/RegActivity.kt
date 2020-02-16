@@ -59,9 +59,6 @@ class RegActivity : AppCompatActivity(), MultiChoiceDialogFragment.DataReceiver 
 
         }
 
-
-
-
         viewModel = getViewModel()
 
         setCityChoices()
@@ -93,12 +90,25 @@ class RegActivity : AppCompatActivity(), MultiChoiceDialogFragment.DataReceiver 
             viewModel.userPhotoUrl = it.toString()
         })
 
+        viewModel.statusMutableLiveData.observe(this, Observer {
+            when(it){
+                Status.SHOW_LOADING -> {
+                    regBtnReg.isEnabled = false
+                    progressBar.visibility = View.VISIBLE
+                }
+                Status.HIDE_LOADING -> {
+                    regBtnReg.isEnabled = true
+                    progressBar.visibility = View.GONE
+                }
+            }
+        })
+
         regBtnReg.setOnClickListener {
 
             regBtnReg.isEnabled = false
 
             if (validate()){
-                if (isUser == true) {
+                if (isUser) {
 
                     viewModel.register(
                         reg_MailEditId.text.toString(),
@@ -122,16 +132,6 @@ class RegActivity : AppCompatActivity(), MultiChoiceDialogFragment.DataReceiver 
                 this.toast("Пароли не совпадают!")
             }
 
-            viewModel.statusMutableLiveData.observe(this, Observer {
-                when(it){
-                    Status.SHOW_LOADING -> {
-                        progressBar.visibility = View.VISIBLE
-                    }
-                    Status.HIDE_LOADING -> {
-                        progressBar.visibility = View.GONE
-                    }
-                }
-            })
         }
 
         /**

@@ -26,7 +26,6 @@
                 android:id="@+id/photoCompanyImageView"
                 android:scaleType="centerCrop"
                 android:src="@drawable/ic_group_black"
-                android:tint="@color/white"
                 android:layout_width="48dp"
                 android:layout_height="48dp"/>
 

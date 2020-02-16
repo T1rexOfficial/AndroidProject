@@ -1,22 +1,45 @@
-package com.example.help_me.presentation.auth.registration;
+package com.example.help_me.presentation.auth.registration
 
+import android.content.SharedPreferences
 import android.net.Uri
 import androidx.lifecycle.MutableLiveData
 import com.example.help_me.base.BaseViewModel
+import com.example.help_me.base.Status
 import com.example.help_me.entities.Company
 import com.example.help_me.entities.User
 import com.example.help_me.presentation.dialogs.ChoiceItem
 import com.example.help_me.presentation.dialogs.ChoiceType
+import com.google.gson.Gson
+import org.koin.standalone.inject
 
 class RegViewModel (val repository: RegRepository): BaseViewModel() {
     val regLiveData = MutableLiveData<String>()
+    private val pref: SharedPreferences by inject()
 
     var userPhotoUrl:String? = null
+
+    private fun storeUser(user: User) {
+        val prefsEditor = pref.edit()
+        val gson = Gson()
+        val json = gson.toJson(user)
+        prefsEditor.putString("myUser", json)
+        prefsEditor.apply()
+    }
+
+    private fun storeCompany (company: Company) {
+        val prefsEditor = pref.edit()
+        val gson = Gson()
+        val json = gson.toJson(company)
+        prefsEditor.putString("myCompany", json)
+        prefsEditor.apply()
+
+    }
 
     fun register(login: String, password: String, city:String, gender:String, name:String, surname:String, age:String) {
         makeRequest({ repository.register(User(login, password, city, gender, name, surname, age, userPhotoUrl)) }) { res ->
             unwrap(res) {
                 regLiveData.value = "${it.name}, вы успешно зарегистрировались!"
+                storeUser(it)
             }
         }
     }
@@ -25,6 +48,7 @@ class RegViewModel (val repository: RegRepository): BaseViewModel() {
         makeRequest({ repository.registerCompany(Company(login, password, city, title, website, userPhotoUrl)) }) { res ->
             unwrap(res) {
                 regLiveData.value = "${it.title}, вы успешно зарегистрировались!"
+                storeCompany(it)
             }
         }
     }
@@ -32,9 +56,11 @@ class RegViewModel (val repository: RegRepository): BaseViewModel() {
     val downloadUriLiveData = MutableLiveData<Uri>()
 
     fun uploadFile(uri: Uri) {
+        statusMutableLiveData.value = Status.SHOW_LOADING
         makeRequest({repository.uploadFile(uri)}){ res->
             unwrap(res){
                 downloadUriLiveData.value = it
+                statusMutableLiveData.value = Status.HIDE_LOADING
             }
         }
     }
